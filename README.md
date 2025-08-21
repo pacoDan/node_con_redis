@@ -1,6 +1,11 @@
 docker:
 
 ```sh
+docker-compose down --rmi all
+docker-compose up -d --build
+# para ver el servidor:
+docker exec -it mysql mysql -uroot -p
+
 # Construir la imagen
 docker build -t proyecto-backend-node .
 
@@ -11,5 +16,6 @@ docker run -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 --name backend
 docker logs backend-microservices
 
 # Ver estado de los procesos PM2
-docker exec backend-microservices pm2 status
+docker-compose exec backend pm2 status
 ```
+
