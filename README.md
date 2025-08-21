@@ -1,6 +1,7 @@
 docker:
 
 ```sh
+docker system prune -a --volumes
 docker-compose down --rmi all
 docker-compose up -d --build
 # para ver el servidor:
