@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: .
+    container_name: backend-microservices
+    ports:
+      - "3000:3000" # API
+      - "3001:3001" # MySQL Service
+      - "3002:3002" # Post Service
+      - "3003:3003" # Cache Service
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    volumes:
+      - ./ecosystem.config.js:/app/ecosystem.config.js
+      - ./config.js:/app/config.js
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge

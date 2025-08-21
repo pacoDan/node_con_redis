@@ -1,6 +1,8 @@
-docker:
+#!/bin/bash
 
-```sh
+# Limpiar cache de Docker
+docker system prune -f
+
 # Construir la imagen
 docker build -t proyecto-backend-node .
 
@@ -12,4 +14,3 @@ docker logs backend-microservices
 
 # Ver estado de los procesos PM2
 docker exec backend-microservices pm2 status
-```
